@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.web.*?>
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.image.*?>
 
-<TabPane fx:id="tp" cache="true" prefHeight="477.0" prefWidth="682.0" styleClass="" stylesheets="@FXML.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aplicacionescritorio.Controller">
+<TabPane fx:id="tp" cache="true" prefHeight="477.0" prefWidth="682.0" styleClass="" stylesheets="@FXML.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aplicacionescritorio.Controller">
     <tabs>
         <Tab fx:id="PesIntro" text="Ventana de introduccion">
             <content>
@@ -36,7 +32,10 @@
                                      
                                         <Button fx:id="btnCerrar" layoutX="556.0" layoutY="43.0" mnemonicParsing="false" onAction="#btnCerrar" style="-fx-background-color: white;" text="">
                                             <graphic>
-                                                 <ImageView id="Image" image="$BtnCerrar" />
+                                                 <ImageView id="Image" fitHeight="51.0" fitWidth="53.0">
+                                       <image>
+                                          <Image url="@../../../../Pictures/Cerrar.jpg" />
+                                       </image></ImageView>
                                             </graphic>  
                                             
                                         </Button>
