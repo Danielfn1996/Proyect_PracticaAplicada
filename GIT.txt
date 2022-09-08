@@ -1,0 +1,30 @@
+PASOS GIT EN ORDEN 
+
+descargar git
+crear una carpeta en el escritorio documentos donde ud quiera
+click derecho git bash here 
+
+y ingresa los siguientes comandos
+
+
+$ git config --global user.name "cristian rojas"				// SU NOMBRE
+
+$ git config --global user.email "crrojasruiz@poligran.edu.co"			// CORREO CON EL QUE ESTA INSCRITO EN GITHUB DEL REPOSITORIO
+
+$ git clone https://github.com/Danielfn1996/Proyect_PracticaAplicada            // ENLAZE DEL REPOSITORIO Y SE DESCARGA EN LA CARPETA
+
+$ cd Proyect_PracticaAplicada/							// proyecto al que quiere iniciar 
+
+$ git status									// GUARDA O ACTUALIZA EL REPOSITORIO
+
+$ git add .									// LOCAL GUARDA EL REPOSITORIO
+
+$ git commit -m "añadi boton(JavaApplication8)"					// INFORMAR QUE SE HIZO
+
+$ git remote									// PUNTO ORIGEN
+
+$ git push									// se guarda en github 
+
+
+
+
