@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.web.*?>
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.image.*?>
 
-<TabPane fx:id="tp" cache="true" prefHeight="477.0" prefWidth="682.0" styleClass="" stylesheets="@FXML.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aplicacionescritorio.Controller">
+<TabPane fx:id="tp" cache="true" prefHeight="477.0" prefWidth="682.0" styleClass="" stylesheets="@FXML.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aplicacionescritorio.Controller">
     <tabs>
         <Tab fx:id="PesIntro" text="Ventana de introduccion">
             <content>
@@ -34,9 +34,12 @@
                                             <Image fx:id="BtnCerrar" url="@Images/cancelar-crculo.png" />
                                         </fx:define>
                                      
-                                        <Button fx:id="btnCerrar" layoutX="556.0" layoutY="43.0" mnemonicParsing="false" onAction="#btnCerrar" style="-fx-background-color: white;" text="">
+                                        <Button fx:id="btnCerrar" layoutX="556.0" layoutY="43.0" mnemonicParsing="false" onAction="#btnCerrar" prefHeight="71.0" prefWidth="83.0" style="-fx-background-color: white;" text="">
                                             <graphic>
-                                                 <ImageView id="Image" image="$BtnCerrar" />
+                                                 <ImageView id="Image" fitHeight="51.0" fitWidth="53.0">
+                                       <image>
+                                          <Image url="@Images/cancelar-crculo.png" />
+                                       </image></ImageView>
                                             </graphic>  
                                             
                                         </Button>
@@ -61,11 +64,11 @@
                                                 <Font name="Arial Black" size="14.0" />
                                             </font>
                                         </Label>
-                                        <Button id="btJugar" fx:id="buttonJugar" layoutX="554.0" layoutY="372.0" mnemonicParsing="false" onAction="#ButtonJugar" prefHeight="38.0" prefWidth="81.0" styleClass="button" stylesheets="@FXML.css" text="¡JUGAR!" textFill="WHITE">
+                                        <Button id="btJugar" fx:id="buttonJugar" layoutX="554.0" layoutY="372.0" mnemonicParsing="false" onAction="#eventButton" prefHeight="38.0" prefWidth="81.0" styleClass="button" stylesheets="@FXML.css" text="¡JUGAR!" textFill="WHITE">
                                         </Button>
                                         <Accordion id="acc" layoutX="162.0" layoutY="265.0" prefHeight="293.0" prefWidth="294.0" styleClass="" stylesheets="@FXML.css">
                                             <panes>
-                                                <TitledPane animated="false" prefHeight="101.0" prefWidth="292.0" style="-fx-background-color: white;" text="PALABRA">
+                                                <TitledPane animated="false" prefHeight="101.0" prefWidth="292.0" style="-fx-background-color: BLACK; -fx-background-radius: BLACK;" text="PALABRA">
                                                     <content>
                                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                             <children>
@@ -96,7 +99,7 @@
                                                         <Font name="Arial Black" size="14.0" />
                                                     </font>
                                                 </TitledPane>
-                                                <TitledPane animated="false" prefHeight="102.0" prefWidth="292.0" text="untitled 3">
+                                                <TitledPane animated="false" prefHeight="102.0" prefWidth="292.0" text="INTENTOS">
                                                     <content>
                                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                             <children>
@@ -104,6 +107,9 @@
                                                             </children>
                                                         </AnchorPane>
                                                     </content>
+                                       <font>
+                                          <Font name="Arial Black" size="14.0" />
+                                       </font>
                                                 </TitledPane>
                                             </panes>
                                         </Accordion>
@@ -135,7 +141,94 @@
         </Tab>
         <Tab fx:id="PesJuego" text="Ventana de juego">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <GridPane layoutX="189.0" layoutY="64.0" prefHeight="320.0" prefWidth="304.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="txt00" alignment="CENTER" onKeyTyped="#eventKey" prefHeight="66.0" prefWidth="60.0">
+                           <font>
+                              <Font name="Arial Black" size="24.0" />
+                           </font>
+                        </TextField>
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Arial Black" size="24.0" />
+                           </font></TextField>
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="2">
+                           <font>
+                              <Font name="Arial Black" size="24.0" />
+                           </font></TextField>
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="3">
+                           <font>
+                              <Font name="Arial Black" size="24.0" />
+                           </font></TextField>
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="4">
+                           <font>
+                              <Font name="Arial Black" size="24.0" />
+                           </font></TextField>
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial Black" size="24.0" />
+                           </font></TextField>
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial Black" size="24.0" />
+                           </font></TextField>
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial Black" size="24.0" />
+                           </font></TextField>
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial Black" size="24.0" />
+                           </font></TextField>
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial Black" size="24.0" />
+                           </font></TextField>
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.rowIndex="3" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.rowIndex="4" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.rowIndex="5" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                        <TextField alignment="CENTER" prefHeight="66.0" prefWidth="60.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                     </children>
+                  </GridPane>
+                  <Button layoutX="531.0" layoutY="384.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="109.0" text="ENVIAR">
+                     <font>
+                        <Font name="Arial Black" size="18.0" />
+                     </font>
+                  </Button>
+               </children></AnchorPane>
             </content>
         </Tab>
     </tabs>

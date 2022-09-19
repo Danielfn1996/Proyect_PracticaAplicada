@@ -1,24 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package aplicacionescritorio;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 /**
  * FXML Controller class
  *
  * @author User
  */
-public class Controller implements Initializable {
+public class Controller implements Initializable{
+  
 
     @FXML
     private Tab PesIntro;
@@ -28,29 +27,37 @@ public class Controller implements Initializable {
     private Tab PesJuego;
     @FXML
     private TabPane tp;
-    
     @FXML
     private Button btnCerrar;
-
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
+     @FXML
+    private TextField txt00;
+     
+         @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }  
-    
+       
+    }
+      
     @FXML
-    public void ButtonJugar(ActionEvent event ){
+    private void eventButton(ActionEvent event ){
      tp.getSelectionModel().select(PesJuego);
     }
-    
-    
+     @FXML  
     public void btnCerrar(ActionEvent event ){
      tp.getSelectionModel().select(PesJuego);
     }
+    
+@FXML    
+       private void eventKey(KeyEvent event){
+           Object evt = event.getSource();
+           if(evt.equals(txt00)){
+               if(!Character.isLetter(event.getCharacter().charAt(0)) && !event.getCharacter().equals(" ")); // no permite numeros
+               else if(evt.equals(txt00)){
+                   if(txt00.getText().length() >= 1){
+                       event.consume();
+                   }
+               }
+        }
+       }
+ 
 
-    
-    
 }
