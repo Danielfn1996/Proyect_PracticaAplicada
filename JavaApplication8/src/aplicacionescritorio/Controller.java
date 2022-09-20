@@ -30,6 +30,8 @@ public class Controller implements Initializable{
     @FXML
     private Button btnCerrar;
      @FXML
+    private Button btnInterrog;
+     @FXML
     private TextField txt00;
      
          @Override
@@ -44,6 +46,10 @@ public class Controller implements Initializable{
      @FXML  
     public void btnCerrar(ActionEvent event ){
      tp.getSelectionModel().select(PesJuego);
+    }
+      @FXML  
+    public void btnInterrog(ActionEvent event ){
+     tp.getSelectionModel().select(PesIntro);
     }
     
 @FXML    
