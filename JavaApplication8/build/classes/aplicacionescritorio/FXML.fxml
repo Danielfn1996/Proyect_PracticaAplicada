@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.web.*?>
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.image.*?>
 
-<TabPane fx:id="tp" cache="true" prefHeight="477.0" prefWidth="682.0" styleClass="" stylesheets="@FXML.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aplicacionescritorio.Controller">
+<TabPane fx:id="tp" cache="true" prefHeight="477.0" prefWidth="682.0" styleClass="" stylesheets="@FXML.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aplicacionescritorio.Controller">
     <tabs>
         <Tab fx:id="PesIntro" text="Ventana de introduccion">
             <content>
@@ -28,15 +28,19 @@
                     <children>
                         <ScrollPane hbarPolicy="ALWAYS" prefHeight="448.0" prefWidth="682.0" vbarPolicy="ALWAYS">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="446.0" prefWidth="683.0" stylesheets="@FXML.css">
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="446.0" prefWidth="683.0" style="-fx-background-color: WHITE;" stylesheets="@FXML.css">
                                     <children>
                                         <fx:define>
                                             <Image fx:id="BtnCerrar" url="@Images/cancelar-crculo.png" />
                                         </fx:define>
                                      
-                                        <Button fx:id="btnCerrar" layoutX="556.0" layoutY="43.0" mnemonicParsing="false" onAction="#btnCerrar" style="-fx-background-color: white;" text="">
+                                        <Button fx:id="btnCerrar" layoutX="556.0" layoutY="43.0" mnemonicParsing="false" onAction="#btnCerrar" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: white;" text="">
                                             <graphic>
-                                                 <ImageView id="Image" image="$BtnCerrar" />
+                                                <ImageView id="Image">
+                                                    <image>
+                                                        <Image url="@Images/cancelar-crculo.png" />
+                                                    </image>
+                                                </ImageView>
                                             </graphic>  
                                             
                                         </Button>
@@ -45,7 +49,7 @@
                                                 <Font name="Arial Black" size="14.0" />
                                             </font>
                                         </Label>
-                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="43.0" prefHeight="28.0" prefWidth="112.0" text="Ejemplos" textOverrun="CLIP" wrapText="true">
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="43.0" prefHeight="28.0" prefWidth="112.0" text="EJEMPLOS" textOverrun="CLIP" wrapText="true">
                                             <cursor>
                                                 <Cursor fx:constant="TEXT" />
                                             </cursor>
@@ -53,7 +57,7 @@
                                                 <Bloom />
                                             </effect>
                                             <font>
-                                                <Font name="Arial Black" size="18.0" />
+                                                <Font name="Arial Black" size="14.0" />
                                             </font>
                                         </Label>
                                         <Label layoutX="161.0" layoutY="229.0" text="REGLAS DE JUEGO">
@@ -61,17 +65,25 @@
                                                 <Font name="Arial Black" size="14.0" />
                                             </font>
                                         </Label>
-                                        <Button id="btJugar" fx:id="buttonJugar" layoutX="554.0" layoutY="372.0" mnemonicParsing="false" onAction="#ButtonJugar" prefHeight="38.0" prefWidth="81.0" styleClass="button" stylesheets="@FXML.css" text="¡JUGAR!" textFill="WHITE">
+                                        <Label disable="true" layoutX="161.0" layoutY="124.0" prefHeight="41.0" prefWidth="318.0" text="La casilla se rellena de color amarillo cuando la letra esta en la palabra pero en la posicion incorrecta  " wrapText="true">
+                                            <font>
+                                                <Font name="Arial" size="12.0" />
+                                            </font>
+                                        </Label>
+                                        <Button id="btJugar" fx:id="buttonJugar" layoutX="529.0" layoutY="372.0" mnemonicParsing="false" onAction="#ButtonJugar" prefHeight="38.0" prefWidth="106.0" styleClass="button" stylesheets="@FXML.css" text="¡JUGAR!" textFill="WHITE">
+                                            <font>
+                                                <Font name="Arial Black" size="14.0" />
+                                            </font>
                                         </Button>
-                                        <Accordion id="acc" layoutX="162.0" layoutY="265.0" prefHeight="293.0" prefWidth="294.0" styleClass="" stylesheets="@FXML.css">
+                                        <Accordion id="acc" layoutX="162.0" layoutY="261.0" minHeight="150.0" prefHeight="49.0" prefWidth="294.0" styleClass="" stylesheets="@FXML.css">
                                             <panes>
-                                                <TitledPane animated="false" prefHeight="101.0" prefWidth="292.0" style="-fx-background-color: white;" text="PALABRA">
+                                                <TitledPane animated="false" prefHeight="101.0" prefWidth="292.0" text="PALABRA">
                                                     <content>
-                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-border-color: green;">
                                                             <children>
                                                                 <TextArea disable="true" layoutY="-1.0" maxWidth="235.0" prefHeight="182.0" prefWidth="289.0" style="-fx-max-width: 500;" text="la palabra del juego Wordle debe  estar preparada para que esta prueba de escritporio&#10;" wrapText="true">
                                                                     <font>
-                                                                        <Font name="Arial" size="14.0" />
+                                                                        <Font name="Arial" size="12.0" />
                                                                     </font>
                                                                     <cursor>
                                                                         <Cursor fx:constant="TEXT" />
@@ -88,7 +100,7 @@
                                                     <content>
                                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="101.0" prefWidth="290.0">
                                                             <children>
-                                                                <TextArea layoutX="1.0" prefHeight="180.0" prefWidth="288.0" />
+                                                                <TextArea layoutX="1.0" prefHeight="180.0" prefWidth="288.0" style="-fx-border-color: green;" />
                                                             </children>
                                                         </AnchorPane>
                                                     </content>
@@ -96,23 +108,21 @@
                                                         <Font name="Arial Black" size="14.0" />
                                                     </font>
                                                 </TitledPane>
-                                                <TitledPane animated="false" prefHeight="102.0" prefWidth="292.0" text="untitled 3">
+                                                <TitledPane animated="false" minHeight="200.0" minWidth="200.0" prefHeight="104.0" prefWidth="292.0" text="INTENTOS">
                                                     <content>
-                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="101.0" prefWidth="290.0">
                                                             <children>
-                                                                <TextArea layoutX="-3.0" layoutY="-7.0" prefHeight="185.0" prefWidth="294.0" />
+                                                                <TextArea layoutX="-3.0" layoutY="-7.0" prefHeight="74.0" prefWidth="294.0" />
                                                             </children>
                                                         </AnchorPane>
                                                     </content>
+                                                    <font>
+                                                        <Font name="Arial Black" size="14.0" />
+                                                    </font>
                                                 </TitledPane>
                                             </panes>
                                         </Accordion>
                                         <Label contentDisplay="CENTER" disable="true" layoutX="162.0" layoutY="82.0" maxHeight="94.0" maxWidth="500.0" prefHeight="42.0" prefWidth="303.0" snapToPixel="false" text="La casilla se rellena de color verde cuando la letra esta en la palabra y en la posicion correcta  " wrapText="true">
-                                            <font>
-                                                <Font size="12.0" />
-                                            </font>
-                                        </Label>
-                                        <Label disable="true" layoutX="161.0" layoutY="124.0" prefHeight="41.0" prefWidth="318.0" text="La casilla se rellena de color amarillo cuando la letra esta en la palabra pero en la posicion incorrecta  " wrapText="true">
                                             <font>
                                                 <Font name="Arial" size="12.0" />
                                             </font>
@@ -135,7 +145,58 @@
         </Tab>
         <Tab fx:id="PesJuego" text="Ventana de juego">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <GridPane layoutX="141.0" layoutY="67.0" prefHeight="187.0" prefWidth="552.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.00003051757812" minWidth="10.0" prefWidth="30.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="30.0" prefWidth="30.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="272.66668701171875" minWidth="30.0" prefWidth="30.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="355.0" minWidth="30.0" prefWidth="30.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="txt_08" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <TextField fx:id="txt_03" GridPane.columnIndex="3" />
+                        <TextField fx:id="txt_04" GridPane.columnIndex="4" />
+                        <TextField fx:id="txt_09" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <TextField fx:id="txt_13" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <TextField fx:id="txt_18" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <TextField fx:id="txt_23" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <TextField fx:id="txt_28" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                        <TextField fx:id="txt_14" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <TextField fx:id="txt_19" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                        <TextField fx:id="txt_24" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                        <TextField fx:id="txt_29" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                        <TextField fx:id="txt_01" GridPane.columnIndex="1" />
+                        <TextField fx:id="txt_06" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txt_11" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txt_16" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="txt_21" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="txt_26" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="txt_02" GridPane.columnIndex="2" />
+                        <TextField fx:id="txt_07" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField fx:id="txt_12" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField fx:id="txt_17" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <TextField fx:id="txt_22" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <TextField fx:id="txt_00" onKeyPressed="#ValidarCaracter" onKeyReleased="#ValidarPalabra" />
+                        <TextField fx:id="txt_05" GridPane.rowIndex="1" />
+                        <TextField fx:id="txt_10" GridPane.rowIndex="2" />
+                        <TextField fx:id="txt_15" GridPane.rowIndex="3" />
+                        <TextField fx:id="txt_20" GridPane.rowIndex="4" />
+                        <TextField fx:id="txt_25" GridPane.rowIndex="5" />
+                        <TextField fx:id="txt_27" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
             </content>
         </Tab>
     </tabs>
