@@ -1,20 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package aplicacionescritorio;
 
 import Modelo.Juego;
 import Modelo.Palabra;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
+<<<<<<< HEAD
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import java.awt.*;
@@ -23,13 +20,17 @@ import java.util.regex.Pattern;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TextFormatter.Change;
+=======
+import javafx.scene.input.KeyEvent;
+>>>>>>> origin
 
 /**
  * FXML Controller class
  *
  * @author User
  */
-public class Controller implements Initializable {
+public class Controller implements Initializable{
+  
 
     @FXML
     private Tab PesIntro;
@@ -39,6 +40,7 @@ public class Controller implements Initializable {
     private Tab PesJuego;
     @FXML
     private TabPane tp;
+<<<<<<< HEAD
 
     @FXML
     private Button btnCerrar;
@@ -194,6 +196,49 @@ public class Controller implements Initializable {
         palabra.ValidarCaracter(txt_28, 1);
         palabra.ValidarCaracter(txt_29, 1);
 
+=======
+    @FXML
+    private Button btnCerrar;
+     @FXML
+    private Button btnInterrog;
+     @FXML
+    private TextField txt00;
+     
+         @Override
+    public void initialize(URL url, ResourceBundle rb) {
+       
     }
+      
+    @FXML
+    private void eventButton(ActionEvent event ){
+     tp.getSelectionModel().select(PesJuego);
+    }
+     @FXML  
+    public void btnCerrar(ActionEvent event ){
+     tp.getSelectionModel().select(PesJuego);
+>>>>>>> origin
+    }
+      @FXML  
+    public void btnInterrog(ActionEvent event ){
+     tp.getSelectionModel().select(PesIntro);
+    }
+    
+@FXML    
+       private void eventKey(KeyEvent event){
+           Object evt = event.getSource();
+           if(evt.equals(txt00)){
+               if(!Character.isLetter(event.getCharacter().charAt(0)) && !event.getCharacter().equals(" ")); // no permite numeros
+               else if(evt.equals(txt00)){
+                   if(txt00.getText().length() >= 1){
+                       event.consume();
+                   }
+               }
+        }
+       }
+ 
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin
