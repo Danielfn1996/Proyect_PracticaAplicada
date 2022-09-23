@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 
+
 /**
  *
  * @author Ruben Leon
@@ -43,7 +44,8 @@ public class Palabra {
         this.descripcion = descripcion;
     }
 
-    public void tamanioTextField(TextField txt, int limit) {
+    public void validarCaracteres(TextField txt, int limit) {
+        Pattern pattern = Pattern.compile("[a-zA-Z]*");
         UnaryOperator<TextFormatter.Change> textLimitFilter = change -> {
             if (change.isContentChange()) {
                 int newLength = change.getControlNewText().length();
@@ -54,23 +56,19 @@ public class Palabra {
                     change.setRange(0, oldLength);
                 }
             }
-            return change;
-        };
-        txt.setTextFormatter(new TextFormatter(textLimitFilter));
-    }
-    
-    
-    public void ValidarCaracter(TextField txt, int limit) {
-       Pattern pattern = Pattern.compile("[a-zA-Z]*");
-        UnaryOperator<TextFormatter.Change> filter = c -> {
-            if (pattern.matcher(c.getControlNewText()).matches()) {
-                return c;
+            if (pattern.matcher(change.getControlNewText()).matches()) {
+                return change;
             } else {
                 return null;
             }
+           
         };
-        TextFormatter<String> formatter = new TextFormatter<>(filter);
+        txt.setTextFormatter(new TextFormatter(textLimitFilter));
+        TextFormatter<String> formatter = new TextFormatter<>(textLimitFilter);
         txt.setTextFormatter(formatter);
     }
+    
+    
+ 
 
 }
