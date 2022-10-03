@@ -13,17 +13,21 @@ import javafx.scene.control.TextFormatter;
  * @author Ruben Leon
  */
 public class Juego extends Palabra {
+
     public int idPartida;
     public String descripcion;
 
-    public int getIdPartida() {
-        return idPartida;
+    public Juego() {
     }
 
     public Juego(int idPartida, String descripcion, int id, String palabra) {
         super(id, palabra);
         this.idPartida = idPartida;
         this.descripcion = descripcion;
+    }
+
+    public int getIdPartida() {
+        return idPartida;
     }
 
     public void setIdPartida(int idPartida) {
@@ -37,5 +41,15 @@ public class Juego extends Palabra {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-   
+
+    public int tamanioPalabra(TextField txt[][], int posicion) {
+        String palabra = "";
+
+        for (int j = 0; j < 5; j++) {
+            palabra = palabra + txt[posicion][j].getText();
+        }
+
+        return palabra.length();
+    }
+
 }

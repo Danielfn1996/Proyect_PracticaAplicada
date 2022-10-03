@@ -1,8 +1,9 @@
 package aplicacionescritorio;
 
-import Modelo.Juego;
 import Modelo.Palabra;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
@@ -13,12 +14,10 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
-import java.awt.*;
-import java.util.function.UnaryOperator;
-import java.util.regex.Pattern;
-import javafx.beans.value.ChangeListener;
-import javafx.scene.control.TextFormatter.*;
-import javafx.scene.input.InputMethodEvent;
+import javafx.scene.control.Alert;
+
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 
 /**
  * FXML Controller class
@@ -100,6 +99,16 @@ public class Controller implements Initializable {
     private TextField txt_19;
     @FXML
     private TextField txt_23;
+    @FXML
+    private Button BtnEnviar;
+    @FXML
+    private GridPane gvLetras;
+    @FXML
+    private RowConstraints Row1;
+
+    public int posicion = 0;
+    @FXML
+    private Button btnInterrog;
 
     /**
      * Initializes the controller class.
@@ -156,7 +165,56 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void validarCaracter(KeyEvent event) {
+    private void btnEnviar(ActionEvent event) throws SQLException {
+        Palabra pl = new Palabra();
+        if (posicion <= 5) {
+            TextField matriz[][] = {
+                {txt_00, txt_01, txt_02, txt_03, txt_04},
+                {txt_05, txt_06, txt_07, txt_08, txt_09},
+                {txt_10, txt_11, txt_12, txt_13, txt_14},
+                {txt_15, txt_16, txt_17, txt_18, txt_19},
+                {txt_20, txt_21, txt_22, txt_23, txt_24},
+                {txt_25, txt_26, txt_27, txt_28, txt_29},};
+
+            int tamanio = pl.tamanioPalabra(matriz, posicion);
+            if (tamanio != 5) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Diálogo de error...");
+                alert.setHeaderText(null);
+                alert.setContentText("No hay suficientes letras");
+                alert.showAndWait();
+            } else {
+
+                ArrayList<Object> validacion = pl.comparar(matriz, posicion);
+
+                for (int i = 0; i < 5; i++) {
+                    if (validacion.get(i).equals(0)) {
+                        matriz[posicion][i].setStyle("-fx-background-color: green");
+                    } else if (validacion.get(i).equals(1)) {
+                        matriz[posicion][i].setStyle("-fx-background-color: yellow");
+                    } else {
+                        matriz[posicion][i].setStyle("-fx-background-color: Gray");
+                    }
+
+                }
+                for (int i = 0; i < 5; i++) {
+                    matriz[posicion][i].disableProperty().set(true);
+                }
+                posicion++;
+
+                for (int i = 0; i < 5; i++) {
+                    matriz[posicion][i].disableProperty().set(false);
+                    matriz[posicion][i].editableProperty().set(true);
+                }
+
+            }
+        }
+    }
+
+    @FXML
+    private void btnInterrog(ActionEvent event) {
+
+        tp.getSelectionModel().select(PesIntro);
     }
 
 }

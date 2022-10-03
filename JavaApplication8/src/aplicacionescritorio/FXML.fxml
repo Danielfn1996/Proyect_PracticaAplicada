@@ -145,7 +145,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <GridPane layoutX="179.0" layoutY="41.0" prefHeight="300.0" prefWidth="300.0">
+                  <GridPane fx:id="gvLetras" layoutX="179.0" layoutY="41.0" prefHeight="300.0" prefWidth="300.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -154,46 +154,60 @@
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints fx:id="Row1" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
+                        <TextField fx:id="txt_00" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" />
+                        <TextField fx:id="txt_01" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="1" />
                         <TextField fx:id="txt_02" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="2" />
-                        <TextField fx:id="txt_07" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <TextField fx:id="txt_03" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="3" />
                         <TextField fx:id="txt_04" prefHeight="59.0" prefWidth="80.0" GridPane.columnIndex="4" />
-                        <TextField fx:id="txt_08" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <TextField fx:id="txt_09" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                        <TextField fx:id="txt_18" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                        <TextField fx:id="txt_01" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="1" />
-                        <TextField fx:id="txt_06" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="txt_17" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <TextField fx:id="txt_05" prefHeight="60.0" prefWidth="80.0" GridPane.rowIndex="1" />
-                        <TextField fx:id="txt_10" prefHeight="60.0" prefWidth="80.0" GridPane.rowIndex="2" />
-                        <TextField fx:id="txt_15" prefHeight="60.0" prefWidth="80.0" GridPane.rowIndex="3" />
-                        <TextField fx:id="txt_11" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField fx:id="txt_20" prefHeight="60.0" prefWidth="80.0" GridPane.rowIndex="4" />
-                        <TextField fx:id="txt_25" prefHeight="60.0" prefWidth="80.0" GridPane.rowIndex="5" />
-                        <TextField fx:id="txt_16" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="txt_21" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField fx:id="txt_26" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <TextField fx:id="txt_13" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                        <TextField fx:id="txt_12" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <TextField fx:id="txt_14" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                        <TextField fx:id="txt_00" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" />
-                        <TextField fx:id="txt_22" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                        <TextField fx:id="txt_29" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-                        <TextField fx:id="txt_28" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                        <TextField fx:id="txt_27" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                        <TextField fx:id="txt_24" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                        <TextField fx:id="txt_19" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                        <TextField fx:id="txt_23" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <TextField fx:id="txt_07" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField fx:id="txt_05" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.rowIndex="1" />
+                        <TextField fx:id="txt_08" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <TextField fx:id="txt_09" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <TextField fx:id="txt_18" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <TextField fx:id="txt_06" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txt_17" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <TextField fx:id="txt_10" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.rowIndex="2" />
+                        <TextField fx:id="txt_15" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.rowIndex="3" />
+                        <TextField fx:id="txt_11" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txt_20" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.rowIndex="4" />
+                        <TextField fx:id="txt_25" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.rowIndex="5" />
+                        <TextField fx:id="txt_16" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="txt_21" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="txt_26" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="txt_13" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <TextField fx:id="txt_12" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField fx:id="txt_14" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <TextField fx:id="txt_22" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <TextField fx:id="txt_29" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                        <TextField fx:id="txt_28" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                        <TextField fx:id="txt_27" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <TextField fx:id="txt_24" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                        <TextField fx:id="txt_19" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                        <TextField fx:id="txt_23" disable="true" editable="false" onKeyPressed="#validarCaracteres" prefHeight="60.0" prefWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
+                  <Button fx:id="BtnEnviar" layoutX="522.0" layoutY="379.0" mnemonicParsing="false" onAction="#btnEnviar" text="ENVIAR" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnInterrog" layoutX="66.0" layoutY="41.0" mnemonicParsing="false" onAction="#btnInterrog" prefHeight="0.0" prefWidth="55.0" style="-fx-background-color: white;" text="">
+                     <graphic>
+                        <ImageView id="Image" fitHeight="29.0" fitWidth="34.0">
+                           <image>
+                              <Image url="@Images/iterr.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children></AnchorPane>
             </content>
         </Tab>

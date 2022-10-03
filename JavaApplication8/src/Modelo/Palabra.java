@@ -4,11 +4,16 @@
  */
 package Modelo;
 
+import DAO.PalabraDao;
+import DAO.conexionSql;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
+import java.util.stream.IntStream;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
-
 
 /**
  *
@@ -61,14 +66,59 @@ public class Palabra {
             } else {
                 return null;
             }
-           
+
         };
         txt.setTextFormatter(new TextFormatter(textLimitFilter));
         TextFormatter<String> formatter = new TextFormatter<>(textLimitFilter);
         txt.setTextFormatter(formatter);
+
     }
-    
-    
- 
+
+    public int tamanioPalabra(TextField txt[][], int posicion) {
+        String palabra = "";
+
+        for (int j = 0; j < 5; j++) {
+            palabra = palabra + txt[posicion][j].getText();
+        }
+        return palabra.length();
+    }
+
+    public ArrayList comparar(TextField txt[][], int posicion) throws SQLException {
+        PalabraDao pa = new PalabraDao();
+        Palabra pl = pa.cargarPalabra();
+
+        ArrayList<Object> palabraOculta = new ArrayList();
+        for (char cr : pl.getDescripcion().toCharArray()) {
+            palabraOculta.add(String.valueOf(cr));
+        }
+
+        ArrayList<Object> palabraIngresada = new ArrayList();
+        for (int j = 0; j < 5; j++) {
+            palabraIngresada.add(txt[posicion][j].getText());
+        }
+
+        for (int i = 0; i < palabraIngresada.size(); i++) {
+            String letra = palabraIngresada.get(i).toString();
+            if (palabraOculta.contains(letra)) {
+                int posicion1 = palabraOculta.indexOf(letra);
+                int posicion2 = palabraIngresada.indexOf(letra);
+                if (posicion1 == posicion2) {
+
+                    palabraIngresada.set(i, 0);
+                    palabraOculta.set(i, 0);
+                } else if (posicion1 != posicion2) {
+                    palabraIngresada.set(i, 1);
+                    palabraOculta.set(i, 1);
+                }
+
+            } else {
+                palabraIngresada.set(i, 9);
+                palabraOculta.set(i, 9);
+            }
+
+        }
+
+        return palabraOculta;
+    }
 
 }
