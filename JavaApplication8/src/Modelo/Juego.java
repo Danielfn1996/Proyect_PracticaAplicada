@@ -10,7 +10,7 @@ import javafx.scene.control.TextFormatter;
 
 /**
  *
- * @author Ruben Leon
+ * @author Cristian Rojas
  */
 public class Juego extends Palabra {
 

@@ -8,6 +8,7 @@ package DAO;
  *
  * @author Daniel Felipe Hernandez Vargas
  */
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -17,7 +18,7 @@ public class conexionSql {
 
     Connection conectar = null;
     String usuario = "postgres";
-    String contrasenia = "Colombia2028*";
+    String contrasenia = "crrojasruiz";
     String bd = "postgres";
     String ip = "localhost";
     String puerto = "5432";

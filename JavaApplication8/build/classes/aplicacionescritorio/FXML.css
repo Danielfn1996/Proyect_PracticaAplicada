@@ -6,7 +6,8 @@
 background-color: green
 }
 
-.button {
+.button{
+    
     -fx-background-color: green;
     -fx-border-radius: 10 10 10 10;
     
